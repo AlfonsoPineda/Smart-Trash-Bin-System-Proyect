@@ -42,12 +42,12 @@ CREATE TABLE IF NOT EXISTS MUser(
   lastname VARCHAR(105),
   email VARCHAR(50) PRIMARY KEY,
   phone VARCHAR(16),
-  address VARCHAR(16),
+  address VARCHAR(200),
   position INT(1),
   education INT(1),
   income INT(5),
   utype INT(5),
-  bdat DATE,
+  bdte DATE,
   password VARCHAR(256),
   FOREIGN KEY (position) REFERENCES CPosition(id),
   FOREIGN KEY (education) REFERENCES CEducation(id),
@@ -89,3 +89,10 @@ CREATE TABLE IF NOT EXISTS MContainer(
   FOREIGN KEY (type) REFERENCES CContainerType(id)
 );
 
+CREATE TABLE IF NOT EXISTS DTokens(
+  email VARCHAR(50) PRIMARY KEY,
+  token VARCHAR(256),
+  creation DATE,
+  expiration DATE,
+  FOREIGN KEY (email) REFERENCES MUser(email)
+)
