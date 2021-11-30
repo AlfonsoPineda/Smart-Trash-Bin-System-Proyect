@@ -82,6 +82,7 @@ INSERT INTO CContainerType(ctype) VALUES("Baterías");
 
 CREATE TABLE IF NOT EXISTS MContainer(
   id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50),
   address int(4),
   type int(2),
   capacity int(4),
@@ -89,10 +90,10 @@ CREATE TABLE IF NOT EXISTS MContainer(
   FOREIGN KEY (type) REFERENCES CContainerType(id)
 );
 
-CREATE TABLE IF NOT EXISTS DTokens(
+CREATE TABLE IF NOT EXISTS DToken(
   email VARCHAR(50) PRIMARY KEY,
   token VARCHAR(256),
-  creation DATE,
-  expiration DATE,
+  creation DATETIME,
+  expiration DATETIME,
   FOREIGN KEY (email) REFERENCES MUser(email)
 )
