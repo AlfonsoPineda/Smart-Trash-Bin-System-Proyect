@@ -1,3 +1,4 @@
+DROP DATABASE SmartTrash;
 CREATE DATABASE  IF NOT EXISTS SmartTrash;
 USE SmartTrash;
 
@@ -47,8 +48,8 @@ CREATE TABLE IF NOT EXISTS MUser(
   education INT(1),
   income INT(5),
   utype INT(5),
-  bdte DATE,
-  password VARCHAR(256),
+  bdate DATE,
+  password BINARY(60),
   FOREIGN KEY (position) REFERENCES CPosition(id),
   FOREIGN KEY (education) REFERENCES CEducation(id),
   FOREIGN KEY (utype) REFERENCES CUserType(id)
